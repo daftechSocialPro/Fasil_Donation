@@ -1,0 +1,4 @@
+.owl-carousel .owl-item:not(:last-child) {
+    margin-right: 20px!important;
+    width: 200px!important; /* Change the value as needed */
+  }

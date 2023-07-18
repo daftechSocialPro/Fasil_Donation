@@ -1,0 +1,46 @@
+   .container-shop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+      }
+
+      .container-shop  h1 {
+        font-size: 48px;
+        font-weight: bold;
+        margin: 0 0 20px;
+        text-align: center;
+        color: #e60000;
+      }
+
+      .container-shop   p {
+        font-size: 24px;
+        margin: 0 0 40px;
+        text-align: center;
+        color: #333333;
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+      }
+
+      .countdown-item {
+        background-color: #e60000;
+        border-radius: 5px;
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: bold;
+        margin: 0 10px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .countdown-item span {
+        display: block;
+        font-size: 25px;
+        font-weight: normal;
+        margin-top: 10px;
+        text-transform: uppercase;
+      }

@@ -1,0 +1,143 @@
+<div class="result-div1 mt-5">
+  <div class="container">
+
+    <div class="row gx-lg-5">
+
+
+      <div class="col-lg-7 col-xl-8">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="comon-heading m-0"> የደጋፊዎች መታወቂያ ደረጃ ስያሜ </h2>
+          <a *ngIf="more" routerLink="membership" class="btn all-cm-btn"> ሁሉንም ተመልከት <svg
+              xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+            </svg> </a>
+        </div>
+
+        <owl-carousel-o [options]="customOptions">
+
+          <ng-container *ngFor="let slide of memeberships">
+            <ng-template carouselSlide [id]="slide.id">
+              <div class="col">
+                <a href="#" class="cmonon-plyaars">
+                  <figure>
+                    <img [src]="getImage(slide.idImage!)" alt="gl1" />
+                    <figcaption>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
+                        <path
+                          d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z">
+                        </path>
+                      </svg>
+                    </figcaption>
+                  </figure>
+                  <div class="d-flex align-items-center justify-content-between">
+
+                    <h5> {{ slide.name }}
+                      <span class="d-block"> {{ slide.price }} ብር</span>
+                    </h5>
+                    <span class="num text-center"> Join </span>
+                  </div>
+
+                </a>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+        <!-- <div class="col" *ngFor="let membership of memeberships ">
+            <a href="#" class="items-matchs">
+              <figure class="m-0 bg-mc-1">
+                <img [src]="getImage(membership.idImage!)" alt="bg-ms" />
+              </figure>
+              <div class="matches-div-home">
+                <h5>{{ membership.name }}
+                  <span class="d-block">{{ membership.price }} ብር </span>
+                </h5>
+              </div>
+            </a>
+          </div> -->
+
+
+
+
+
+      </div>
+      <div class="col-lg-5 col-xl-4">
+        <div class="latest-result-div mt-5 mt-lg-0">
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="comon-heading m-0"> የአባልነት ምዝገባ ክፍያ በ አመት</h2>
+            <a *ngIf="more" routerLink="membership" class="btn viw-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-up-right-square-fill" viewBox="0 0 16 16">
+                <path
+                  d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM5.904 10.803 10 6.707v2.768a.5.5 0 0 0 1 0V5.5a.5.5 0 0 0-.5-.5H6.525a.5.5 0 1 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 .707.707z" />
+              </svg>
+            </a>
+
+
+
+
+
+          </div>
+
+          <div class="ltest-divbm mt-4">
+            <div class="comon-items-div" *ngFor="let memberShip of memeberships2">
+
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="cm-culb">
+                  <figure class="d-flex align-items-center">
+                    <figcaption class="me-2">የ{{memberShip.name}} ደረጃ ደጋፊ</figcaption>
+
+
+                  </figure>
+
+                </div>
+                <h5 class="m-0"> - </h5>
+                <div class="cm-culb">
+                  <figure class="d-flex align-items-center">
+                    <figcaption class="me-2">{{memberShip.price}} ብር</figcaption>
+
+
+                  </figure>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="comon-items-div" *ngFor="let memberShip of memeberships2">
+
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="cm-culb">
+                  <figure class="d-flex align-items-center">
+                    <figcaption class="me-2">የ{{memberShip.name}} ደረጃ ደጋፊ</figcaption>
+
+
+                  </figure>
+
+                </div>
+                <h5 class="m-0"> - </h5>
+                <div class="cm-culb">
+                  <figure class="d-flex align-items-center">
+                    <figcaption class="me-2">{{memberShip.price}} ብር</figcaption>
+
+
+                  </figure>
+
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

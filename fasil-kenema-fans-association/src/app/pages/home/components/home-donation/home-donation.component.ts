@@ -1,0 +1,38 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/common/common.service';
+import { HomeService } from '../../home.service';
+
+@Component({
+  selector: 'app-home-donation',
+  templateUrl: './home-donation.component.html',
+  styleUrls: ['./home-donation.component.css']
+})
+export class HomeDonationComponent implements OnInit {
+
+  donations: any;
+  constructor(private commonService: CommonService, private homeService: HomeService) { }
+
+  ngOnInit(): void {
+
+    this.getDonation()
+  }
+
+  getDonation() {
+    this.homeService.getDonations().subscribe({
+      next: (res) => {
+   
+        this.donations = res.slice(0,2)
+
+      }, error: (err) => {
+
+      }
+    })
+
+  }
+  getImage(url: string) {
+
+    return this.commonService.createImgPath(url)
+
+  }
+
+}

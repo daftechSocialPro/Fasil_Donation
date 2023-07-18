@@ -1,0 +1,145 @@
+<section class="sub-main-banner float-start w-100">
+     
+
+    <div class="sub-banner">
+        <div class="container">
+          
+                <h1 class="text-center"> Donation Details </h1> 
+          
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Donation Details </li>
+                </ol>
+            </nav>
+       </div>
+    </div>
+
+
+
+    <div class="cart-sec-ban">
+      <ul class="list-unstyled">
+         <li>
+           <a href="cart.html" class="btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+           </a>
+         </li>
+         <li>
+           <a href="wishlist.html" class="btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+           </a>
+         </li>
+      </ul>
+     </div>
+
+</section>
+
+<section class="body-part-total float-start w-100">
+  
+<div class="blog-details-page comon-services-pge py-5">
+
+<div class="container">
+   <div class="row gx-lg-5">
+      <div class="col-lg-7 col-xl-8">
+          <div class="blog-post">
+              <figure>
+                  <img [src]="getImage( donation && donation.image)" alt="post"/>
+              </figure>
+              <div class="d-lg-flex justify-content-between share-div">
+                  <ul class="list-unstyled d-flex">
+                   
+                     <li> <i class="far fa-calendar-alt"></i> {{donation &&donation.createdAt| date:"MMM dd, yyyy"}} </li>
+                     <li> <i class="far fa-comment"></i>  2 donors </li>
+                  </ul>
+                  <!-- <a data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="fas fa-share-alt"></i> Share</a> -->
+              </div>
+              <h2 class="comon-heading mt-4"> {{donation &&donation.title}} </h2>
+            <p [innerHTML]="donation &&donation.description" > </p>
+             
+          </div>
+          <div class="comment-sec-part mt-4">
+              <h2 class="comon-heading mt-0 mb-3"> Donors</h2>
+              <!-- <div class="comon-com-div mt-4">
+                 <div class="d-lg-flex justify-content-between">
+                      <figure>
+                          <img src="images/istockphoto-1300512215-612x612.jpg" alt="user-pic"/>
+                      </figure>
+                      <div class="comment-text">
+                          <div class="d-flex align-items-center">
+                              <h5 class="m-0"> Jone due </h5> <span class="d-inline ms-3"> Oct 12 ,2021 </span>
+                          </div>
+                          
+                          <p class="mt-2"> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin 
+                          literature from 45 BC, making it over 2000 years old. Richard McClintock. </p>
+                      </div>
+                 </div>
+                   
+              </div>
+              <div class="comon-com-div mt-4">
+                  <div class="d-lg-flex justify-content-between">
+                       <figure>
+                           <img src="images/manages-st.jpg" alt="user-pic"/>
+                       </figure>
+                       <div class="comment-text">
+                           <div class="d-flex align-items-center">
+                               <h5 class="m-0"> John due </h5> <span class="d-inline ms-3"> Oct 12 ,2021 </span>
+                           </div>
+                           
+                           <p class="mt-2"> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin 
+                           literature from 45 BC, making it over 2000 years old. Richard McClintock. </p>
+                       </div>
+                  </div>
+                    
+              </div> -->
+          </div>
+        
+      </div>
+      <div class="col-lg-5 col-xl-4">
+          <!-- <div class="category-div">
+              <h2 class="comon-heading m-0"> Categories </h2>
+              <ul class="list-unstyled mt-4">
+                 <li>
+                     <a href="#"> <i class="fas fa-caret-right"></i> tincidunt condimentum</a>
+                 </li>
+                 <li>
+                  <a href="#"> <i class="fas fa-caret-right"></i>  porttitor velit </a>
+                 </li>
+                 <li>
+                  <a href="#"> <i class="fas fa-caret-right"></i> popular belief</a>
+                 </li>
+                 <li>
+                  <a href="#"> <i class="fas fa-caret-right"></i> nisl porttitor</a>
+                 </li>
+                 <li>
+                  <a href="#"> <i class="fas fa-caret-right"></i>  adipiscing elit</a>
+                 </li>
+                 <li>
+                  <a href="#"> <i class="fas fa-caret-right"></i> scelerisque felis </a>
+                 </li>
+              </ul>
+          </div> -->
+          <div class="recent-post-div mt-5">
+              <h2 class="mb-4 comon-heading"> Recent Post </h2>
+              <div class="recent-post-div-insiide">
+                  <a (click)="setDonation(donatio)" style="cursor: pointer;" *ngFor="let donatio of donations" class="d-flex w-100 justify-content-between align-items-center">
+                      <figure>
+                          <img [src]="getImage(donatio.image)" alt="post"/>
+                      </figure>
+                      <h5> {{donatio.title}} </h5>
+                  </a>                 
+                  
+
+                </div>
+          </div>
+          
+      </div>
+   </div>
+</div>
+    
+</div>
+
+
+</section>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fasil Kenema Fans Association - </title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="assets/logo2.ico">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+  href="assets/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800&amp;family=Cormorant:wght@500&amp;family=Josefin+Sans:wght@400;500;600&amp;family=Merriweather:wght@300;400;700;900&amp;family=Nunito:wght@300;400;500;600&amp;family=Open+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@400;500;600;700;800;900&amp;family=Quicksand:wght@300;400;500;600;700&amp;family=Roboto:wght@300;400;500;700&amp;family=Saira+Condensed:wght@400;500;600;700&amp;display=swap"
+  rel="stylesheet">
+  
+  <link href="assets/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+  <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+
+  <link rel="stylesheet" href="assets/datatable/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.fancybox.min.css">
+
+
+</head>
+<body>
+  <app-root></app-root>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="assets/dist/aos.js"></script>
+  <script src="assets/js/owl.carousel.min.js"></script>
+  <script src="assets/datatable/js/jquery.dataTables.min.js"></script>
+  <script src="assets/js/jquery.fancybox.min.js"></script>
+
+  <script>
+    AOS.init({
+      offset: 100,
+      easing: 'ease',
+      delay: 0,
+      once: true,
+      duration: 800,
+
+    });
+
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      var TIMEOUT = 6000;
+
+      var interval = setInterval(handleNext, TIMEOUT);
+
+      function handleNext() {
+        var $radios = $('input[class*="slide-radio"]');
+        var $activeRadio = $('input[class*="slide-radio"]:checked');
+
+        var currentIndex = $activeRadio.index();
+        var radiosLength = $radios.length;
+
+        $radios.attr("checked", false);
+
+        if (currentIndex >= radiosLength - 1) {
+          $radios.first().attr("checked", true);
+        } else {
+          $activeRadio.next('input[class*="slide-radio"]').attr("checked", true);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

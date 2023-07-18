@@ -1,0 +1,60 @@
+<section class="sub-main-banner float-start w-100">
+
+
+    <div class="sub-banner">
+        <div class="container">
+            <h1 class="text-center"> Membership </h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Membership </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
+    <section class="body-part-total float-start w-100 " style="padding-bottom: 40px;">
+
+        <app-membership [more] = "false" ></app-membership>
+
+        <div class="container">
+            <div class="datails-table mt-4">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">ተ.ቁ</th>
+                        <th scope="col">የደጋፊዎች መታወቂያ ደረጃ ስያሜ</th>
+                        <th scope="col">የገንዘብ መጠን (አመት) </th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let membership of memeberships;let i = index">
+                        <td>{{i+1}}</td>
+                        <td>{{membership.name}}</td>
+                        <td>{{membership.price}} ብር</td>
+                        <td>
+
+                            <a routerLink="memberShip" class="btn all-cm-btn mt-4 mt-lg-0"> Join Us <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                  d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z" />
+                              </svg> </a>
+
+
+                        </td>
+                      
+                      </tr>
+                   
+                     
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+      
+    </section>
+
+
+
+</section>

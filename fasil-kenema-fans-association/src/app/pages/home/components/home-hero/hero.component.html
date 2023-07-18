@@ -1,0 +1,178 @@
+<section class="banner float-start w-100">
+    <div class="container">
+
+
+      <!-- banner part start  -->
+
+
+      <div class="banner-part">
+        <div class="css-slider-wrapper">
+          <input type="radio" name="slider" class="slide-radio1" checked id="slider_1" />
+          <input type="radio" name="slider" class="slide-radio2" id="slider_2" />
+          <input type="radio" name="slider" class="slide-radio3" id="slider_3" />
+
+
+          <!-- Slider Pagination -->
+          <div class="slider-pagination">
+            <label for="slider_1" class="page1">
+
+            </label>
+            <label for="slider_2" class="page2">
+
+            </label>
+            <label for="slider_3" class="page3">
+
+            </label>
+
+
+
+          </div>
+
+          <!-- Slider #1 -->
+          <div class="slider slide-1"  [style.background-image]="'url(' + getImage(hero1&&hero1.backgroundImage) + ')'" >
+
+            <div class="slider-content">
+              <h3> {{hero1&&hero1.content1}}</h3>
+              <h2>{{hero1&&hero1.content2}}
+                <span class="d-block"> {{hero1&&hero1.content3}} </span>
+              </h2>
+              <p> {{hero1&&hero1.content4}} </p>
+              <button routerLink="association"  type="button" class="buy-now-btn" name="button"> About Assoc.
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                  </path>
+                </svg> </button>
+            </div>
+            <div class="number-pagination">
+              <span>1</span>
+            </div>
+          </div>
+
+          <!-- Slider #2 -->
+          <div class="slider slide-2" [style.background-image]="'url(' + getImage(hero2&&hero2.backgroundImage) + ')'">
+
+
+
+
+            <div class="slider-content" >
+              <h2>{{hero2&&hero2.content1}}
+                <span class="d-block"> {{hero2&&hero2.content2}}</span>
+              </h2>
+              <p>{{hero2&&hero2.content3}}</p>
+              <button type="button" class="buy-now-btn" name="button"> Buy Tickit
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                  </path>
+                </svg> </button>
+            </div>
+            <div class="number-pagination">
+              <span>2</span>
+            </div>
+          </div>
+
+          <!-- Slider #3 -->
+          <div class="slider slide-3" [style.background-image]="'url(' + getImage(hero3&&hero3.backgroundImage) + ')'">
+
+
+            <div class="slider-content">
+              <h2>{{hero3&&hero3.content1}} <span class="d-block">{{hero3&&hero3.content2}} </span></h2>
+              <p> {{hero3&&hero3.content3}} </p>
+              <button type="button" class="buy-now-btn" name="button"> Buy Tickit
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z">
+                  </path>
+                </svg> </button>
+            </div>
+            <div class="number-pagination">
+              <span>3</span>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <!-- silder ends -->
+
+      <div class="next-match-banner">
+        <a routerLink="ticket" class="top-next-mc text-center">
+          <h5 class="mn-mc-titel"> Next Match </h5>
+          <hr />
+          <h4> {{nextMatch && nextMatch.matchName  }},{{nextMatch && nextMatch.seasonName}}</h4>
+          <div class="d-flex align-items-center justify-content-center mt-2">
+
+            <figure>
+              <img [src]="getLogo()" style="max-height:80px;" alt="cl1" />
+            </figure>
+            <div class="mc-details-top text-center">
+
+              <p class="time"> {{getTime(nextMatch&&nextMatch.matchDateTime)}}</p>
+              <h5 class="date">
+                {{getDate(nextMatch&&nextMatch.matchDateTime)}}
+              </h5>
+              <p class="location-mc"> {{nextMatch&&nextMatch.locationStadium}}</p>
+            </div>
+
+            <figure>
+              <img [src]="getLogo2()" style="max-height:80px;" alt="cl2" />
+            </figure>
+
+          </div>
+        </a>
+
+        <a class="top-mc-starts mt-4">
+          <h5 class="mn-mc-titel text-center"> Donations </h5>
+          
+          
+          <ul class="list-unstyled d-flex flex-column justify-content-center w-100">
+      
+            <li class="d-flex align-items-center justify-content-between">
+              <span class="ct-2"> <i class="fas fa-bullseye"></i> Target </span>
+              <span>500,000 ብር </span>
+            </li>
+
+            <li class="d-flex align-items-center justify-content-between">
+              <span class="ct-2"> <i class="fas fa-donate"></i> Recived </span>
+              <span>30,000 ብር </span>
+            </li>
+
+
+          </ul>
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+    <div class="cart-sec-ban">
+      <ul class="list-unstyled">
+        <li>
+          <a href="cart.html" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+            </svg>
+          </a>
+        </li>
+        <li>
+          <a href="wishlist.html" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </section>
