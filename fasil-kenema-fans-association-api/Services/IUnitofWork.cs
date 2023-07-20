@@ -3,6 +3,7 @@
 
 using FasilDonationAPI.Services.AboutSection;
 using FasilDonationAPI.Services.Advert;
+using FasilDonationAPI.Services.Branch;
 using FasilDonationAPI.Services.Dashboard;
 using FasilDonationAPI.Services.Donation;
 using FasilDonationAPI.Services.HomeHero;
@@ -33,6 +34,8 @@ namespace FasilDonationAPI.Services
         IDonationRepository donationRepository { get; }
 
         IMemberRepostiory memberRepostiory { get; }
+
+        IBranchRepository branchRepository { get; }
 
 
         Task SaveChanges();

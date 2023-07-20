@@ -59,7 +59,7 @@ function DegafiSetting({ user, setIsLodding }) {
       axios
         .get(`${urlDegafiSetting}/GetTemplate/?mahberId=${mahber.id}`)
         .then((res) => {
-          console.log('template', res.data)
+          //console.log('template', res.data)
 
           setTemplate(res.data)
           setDegafiSetting(res.data && res.data.degafiSettings)

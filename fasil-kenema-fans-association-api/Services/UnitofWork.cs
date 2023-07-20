@@ -2,6 +2,7 @@
 using FasilDonationAPI.Data;
 using FasilDonationAPI.Services.AboutSection;
 using FasilDonationAPI.Services.Advert;
+using FasilDonationAPI.Services.Branch;
 using FasilDonationAPI.Services.Dashboard;
 using FasilDonationAPI.Services.Donation;
 using FasilDonationAPI.Services.HomeHero;
@@ -27,8 +28,8 @@ namespace FasilDonationAPI.Services
             partenerRepository = new PartenerRepository(db);
             aboutSectionRepository = new AboutSectionRepository(db);
             donationRepository = new DonationRepository(db);
-
             memberRepostiory = new MemberRepostiory(db);
+            branchRepository = new BranchRepository(db);
 
         }
       
@@ -50,6 +51,8 @@ namespace FasilDonationAPI.Services
 
 
         public IMemberRepostiory memberRepostiory { get; set; }
+
+        public IBranchRepository branchRepository { get; set; }
 
 
         public async Task SaveChanges()

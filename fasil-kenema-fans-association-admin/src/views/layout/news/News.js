@@ -78,10 +78,10 @@ function News({ user }) {
     connection
       .start()
       .then(() => {
-        console.log("Connection started.......!");
+        //console.log("Connection started.......!");
         
       })
-      .catch((err) => console.log("Error while connect with server",err));
+      .catch((err) => //console.log("Error while connect with server",err));
 
       
 

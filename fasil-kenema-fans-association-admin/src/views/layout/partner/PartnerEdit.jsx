@@ -30,7 +30,7 @@ function PartnerEdit({ user ,setIsLodding}) {
 
   const Partner = location.state.tmret
 
-  console.log("df",Partner)
+  //console.log("df",Partner)
 
   //Partner)
 

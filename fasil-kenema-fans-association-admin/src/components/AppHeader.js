@@ -24,16 +24,8 @@ import { urlMahber } from 'src/endpoints'
 const AppHeader = ({setIsLoggedIn,user}) => {
   const dispatch = useDispatch()
   const sidebarShow = useSelector((state) => state.sidebarShow)
-const [mahber,setMahber]=useState([])
 
-  useEffect(()=>{
 
-    axios.get(`${urlMahber}/getbyid/?mahberId=${user.id}`).
-    then((res) => {
-      console.log('mahber2',res.data)
-      setMahber(res.data);
-    }).catch((err)=>console.error(err));
-  },[])
 
   return (
     <CHeader position="sticky" className="mb-4">

@@ -97,12 +97,12 @@ function Degafi({ user, setIsLodding }) {
   }, [])
 
   const idView = (item) => {
-    console.log('mmm', item)
+    //console.log('mmm', item)
     setDegafi(item)
     axios
       .get(`${urlDegafiSetting}/GetTemplate/?mahberId=${Mahber[0] && Mahber[0].mahberId}`)
       .then((res) => {
-        console.log('template', res.data)
+        //console.log('template', res.data)
         setTemplate(res.data)
       })
       .catch((err) => console.error(err))
@@ -218,7 +218,7 @@ function Degafi({ user, setIsLodding }) {
     formData.append('excelFile', excelFile)
     formData.set('mahberId', mahber.id)
 
-    console.log('formdata', formData)
+    //console.log('formdata', formData)
 
     setIsLodding(true)
     axios
@@ -573,7 +573,7 @@ function Degafi({ user, setIsLodding }) {
                       </CTableRow>
                     </CTableHead>
                     <CTableBody>
-                      {console.log('Degafi', Degafi)}
+                      {//console.log('Degafi', Degafi)}
 
                       {Degafi.payments &&
                         Degafi.payments.map((payment, index) => (

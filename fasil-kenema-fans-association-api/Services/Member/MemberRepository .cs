@@ -253,7 +253,7 @@ namespace FasilDonationAPI.Services
 
           
 
-                return await _context.Members.Include(x => x.DesignSetting).ToListAsync();
+                return await _context.Members.Include(x => x.DesignSetting).Include(x=>x.Branch).ToListAsync();
             
 
         }
@@ -283,15 +283,18 @@ namespace FasilDonationAPI.Services
                     Degafis.PhoneNumber = degafi.PhoneNumber;
                 if (degafi.Description != null)
                     Degafis.Description = degafi.Description;
-                if (degafi.IsActive)
+                if (degafi.IsActive!=null)
                     Degafis.IsActive = degafi.IsActive;
-                if (degafi.IdGiven)
+                if (degafi.IdGiven!=null)
                     Degafis.IdGiven = degafi.IdGiven;
                 if (degafi.Address != null)
                     Degafis.Address = degafi.Address;
 
                 if (degafi.AddressAmharic != null)
                     Degafis.AddressAmharic = degafi.AddressAmharic;
+
+                if (degafi.BranchId != null)
+                    Degafis.BranchId = degafi.BranchId;
 
                 Degafis.Gender = degafi.Gender;
                 Degafis.AmharicName = degafi.AmharicName;

@@ -14,7 +14,6 @@ import { customToast } from 'src/components/customToast'
 import { assetUrl, urlTeam ,urlSeason} from 'src/endpoints'
 function TeamUpdate({ setIsLodding, setVisibleXLU, getTeam, Team }) {
 
-  console.log('hello',Team)
   const [shortName, setShortName] = useState(Team.shortname)
   const [name, setName] = useState(Team.name)
   const [seasonId, setSeasonId] = useState(Team.seasonId)

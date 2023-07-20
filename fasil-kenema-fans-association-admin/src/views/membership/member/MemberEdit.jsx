@@ -23,7 +23,7 @@ import {
   CForm,
   CFormSelect
 } from '@coreui/react'
-import { assetUrl,urlMahber, urlDegafi,urlDegafiSetting, urlMember, urlDesignSetting } from 'src/endpoints'
+import { assetUrl,urlMahber, urlDegafi,urlDegafiSetting, urlMember, urlDesignSetting, urlBranch } from 'src/endpoints'
 
 
 function MemberEdit({ user ,setIsLodding}) {
@@ -48,8 +48,12 @@ function MemberEdit({ user ,setIsLodding}) {
   const [mahber, setMahber] = useState([])
   const [degafiSettings, setDegafiSettings] = useState()
 
+  const [branchs, setBranchs] =useState ()
 
-  console.log("degafisettingId",Degafi.designSettingId)
+  const [branchId, setBranchId] = useState(Degafi.branchId)
+ 
+
+  //console.log("degafisettingId",Degafi.designSettingId)
 
 useEffect(()=>{
 
@@ -62,6 +66,11 @@ useEffect(()=>{
 
 },[])
   
+useEffect(()=>{
+  axios.get(`${urlBranch}`).then((res) => {
+    setBranchs(res.data)
+  })
+},[])
 
 
   const navigate = useNavigate()
@@ -84,7 +93,7 @@ useEffect(()=>{
     formData.set('birthDate', birthDate)
     formData.set('DesignSettingId', degafiSettingId)
     formData.set('Description', description)
-  
+    formData.set('branchId',branchId)
     formData.set("ID",Degafi.id)
     formData.set("IsActive",isActive)
     formData.set("PhoneNumber",phoneNumber)
@@ -304,6 +313,30 @@ useEffect(()=>{
                         </MDBCol>
                       </MDBRow>
                       <hr />
+                      <MDBRow>
+                        <MDBCol sm="3">
+                          <MDBCardText>Branch</MDBCardText>
+                        </MDBCol>
+                        <MDBCol sm="9">
+                          <CFormSelect
+                            type="text"
+                            placeholder="Branch..."
+                            required
+                            value={branchId}
+                            onChange={(e) => setBranchId(e.target.value)}
+                          >
+                            <option>--- Select Type ---</option>
+                            {branchs &&
+                              branchs.map((item, index) => (
+                                <option key={index} value={item.id}>
+                                  {item.name} ( {item.localName}  )
+                             
+                                </option>
+                              ))}
+                          </CFormSelect>
+                        </MDBCol>
+                      </MDBRow>
+                      <hr/>
                       <MDBRow>
                         <MDBCol sm="3">
                           <MDBCardText>Gender</MDBCardText>

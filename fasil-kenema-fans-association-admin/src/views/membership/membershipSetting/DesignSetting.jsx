@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef ,useMemo} from 'react'
 import axios from 'axios'
 import {
   CCol,
@@ -28,7 +28,7 @@ import { cilEyedropper, cilPenAlt, cilTrash } from '@coreui/icons'
 import { urlDesignSetting, urlMahber } from 'src/endpoints'
 import { MDBCol, MDBRow, MDBCard, MDBCardBody } from 'mdb-react-ui-kit'
 import { customToast } from 'src/components/customToast'
-
+import Pagination from 'src/components/Pagination'
 import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 import ImageResize from 'quill-image-resize-module-react'
@@ -50,34 +50,25 @@ function DesignSetting({ user, setIsLodding }) {
   const [startFrom, setStartFrom] = useState('')
   const [template, setTemplate] = useState([])
   const [ds, setDs] = useState([])
-
   const [innerImage, setInnerImage] = useState('')
   const [idImage, setIdImage] = useState('')
 
 
   useEffect(() => {
-
     axios
       .get(`${urlDesignSetting}/GetTemplate`)
-      .then((res) => {
-        console.log('template', res.data)
+      .then((res) => {      
         setTemplate(res.data)
       })
       .catch((err) => console.error(err))
   }, [])
 
   useEffect(() => {
-
     axios.get(`${urlDesignSetting}`).then((res) => {
       setDesignSetting(res.data)
     })
   }, [])
 
-  // const getMahber = () => {
-  //   axios.get(urlMahber).then((res) => {
-  //     setMahber(res.data.filter((m) => m.userId == user.id)[0])
-  //   })
-  //}
 
   const [description, setDescription] = useState('')
   const [name, setName] = useState('')
@@ -85,26 +76,20 @@ function DesignSetting({ user, setIsLodding }) {
   const [money, setMoney] = useState('')
   const [paymentStyle, setPaymentStyle] = useState(0)
   const [color, setColor] = useState('')
-
   const [hasPenality, setHasPenality] = useState(false)
   const [penalityAmount, setPenalityAmount] = useState(0)
   const [increasesEvery, setIncreasesEvery] = useState(0)
   const [multiplyAmount, setMultiplyAmount] = useState(0)
 
+  const [currentPage, setCurrentPage] = useState(1)
+  let PageSize = 3
 
-  let background = useRef()
   const photoInputHandler = (e) => {
     setInnerImage(e.target.files[0])
- 
-
   }
   const photoInputHandler2 = (event) => {
     setIdImage(event.target.files[0])
   }
-
-
-
-
 
 
   const [l, setL] = useState('')
@@ -199,7 +184,7 @@ function DesignSetting({ user, setIsLodding }) {
   ]
 
   const deleteDesign = (item) => {
-    //'ad', item)
+    
     setIsLodding(true)
     axios
       .delete(`${urlDesignSetting}?desetingId=${item}`)
@@ -213,6 +198,13 @@ function DesignSetting({ user, setIsLodding }) {
         customToast('something went wrong', 1)
       })
   }
+
+  
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize
+    const lastPageIndex = firstPageIndex + PageSize
+    return DesignSetting.slice(firstPageIndex, lastPageIndex)
+  }, [currentPage,DesignSetting])
 
   return (
     <>
@@ -545,7 +537,7 @@ function DesignSetting({ user, setIsLodding }) {
                 </CTableHead>
                 <CTableBody>
                   {DesignSetting &&
-                    DesignSetting.map((item, index) => (
+                    currentTableData.map((item, index) => (
                       <CTableRow v-for="item in tableItems" key={index}>
                         <CTableDataCell>{item.name}</CTableDataCell>
                         <CTableDataCell>{item.amharicName}</CTableDataCell>
@@ -633,7 +625,15 @@ function DesignSetting({ user, setIsLodding }) {
                       </CTableRow>
                     ))}
                 </CTableBody>
+       
               </CTable>
+              <Pagination
+              className="pagination-bar"
+              currentPage={currentPage}
+              totalCount={DesignSetting.length}
+              pageSize={PageSize}              
+              onPageChange={(page) => setCurrentPage(page)}
+            />
             </CCardBody>
           </CCard>
         </CCol>

@@ -30,7 +30,7 @@ function DonationEdit({ user ,setIsLodding}) {
 
   const donation = location.state.tmret
 
-  console.log("df",donation)
+
 
   //donation)
 

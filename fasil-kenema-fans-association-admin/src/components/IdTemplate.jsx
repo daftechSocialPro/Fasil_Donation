@@ -33,7 +33,9 @@ function IdTemplate({
   giveId,
   money,
   id,
-  innerImage
+  innerImage,
+  branch,
+  localBranch
 }) {
 
   const [viewBack, setViewBack] = useState(false)
@@ -133,10 +135,10 @@ function IdTemplate({
                 />
               </CCol>
               <CCol sm={8} style={{ textAlign: 'center' }} >
-                <span style={{ fontSize: '22px', fontWeight: 'bolder' }}>{headerAm}</span>
+                <span style={{ fontSize: '22px', fontWeight: 'bolder' }}>{headerAm} {localBranch} ደጋፊዎች ማህበር</span>
                 <br />
                 <span style={{ fontSize: '15px', fontWeight: 'bold', color: "rgb(178, 50, 42)" }}>
-                  {headerEn && headerEn.toUpperCase()}{' '}
+                  {headerEn && headerEn.toUpperCase()} {branch && branch.toUpperCase()}
                 </span>
                 <br />
                 <span style={{ fontSize: '15px', fontWeight: 'bold', color: 'white' }}>{subtitle} </span>

@@ -94,7 +94,7 @@ function UpdateDesignSetting({ template, setIsLodding, ds, setVisibleXL }) {
         })
         .catch((err) => {
           setIsLodding(false)
-          console.log(err)
+          //console.log(err)
           customToast(err, 1)
         })
     } catch (error) {

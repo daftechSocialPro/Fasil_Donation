@@ -30,7 +30,7 @@ function NextMatchEdit({ user ,setIsLodding}) {
 
   const NextMatch = location.state.tmret
 
-  console.log("df",NextMatch)
+  //console.log("df",NextMatch)
 
   //NextMatch)
 

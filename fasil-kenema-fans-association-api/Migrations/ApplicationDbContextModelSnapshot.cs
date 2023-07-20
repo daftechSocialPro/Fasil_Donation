@@ -106,6 +106,35 @@ namespace FasilDonationAPI.Migrations
                     b.ToTable("Advertisements");
                 });
 
+            modelBuilder.Entity("FasilDonationAPI.Entities.Branch", b =>
+                {
+                    b.Property<Guid>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("LocalName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("createdAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("createdBy")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("status")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime>("updatedAt")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Branches");
+                });
+
             modelBuilder.Entity("FasilDonationAPI.Entities.DesignSetting", b =>
                 {
                     b.Property<Guid>("ID")
@@ -324,6 +353,9 @@ namespace FasilDonationAPI.Migrations
                     b.Property<string>("BirthDate")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("BranchId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
@@ -370,6 +402,8 @@ namespace FasilDonationAPI.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("BranchId");
 
                     b.HasIndex("DesignSettingId");
 
@@ -520,11 +554,19 @@ namespace FasilDonationAPI.Migrations
 
             modelBuilder.Entity("FasilDonationAPI.Entities.Member", b =>
                 {
+                    b.HasOne("FasilDonationAPI.Entities.Branch", "Branch")
+                        .WithMany()
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("FasilDonationAPI.Entities.DesignSetting", "DesignSetting")
                         .WithMany()
                         .HasForeignKey("DesignSettingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Branch");
 
                     b.Navigation("DesignSetting");
                 });

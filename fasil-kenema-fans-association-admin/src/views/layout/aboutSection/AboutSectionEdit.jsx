@@ -30,7 +30,7 @@ function AboutSectionEdit({ user ,setIsLodding}) {
 
   const AboutSection = location.state.tmret
 
-  console.log("df",AboutSection)
+  //console.log("df",AboutSection)
 
   //AboutSection)
 

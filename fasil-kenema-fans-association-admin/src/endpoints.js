@@ -8,10 +8,11 @@ export const urlPartner = `${baseURL}/api/Partners`;
 export const urlAboutSection = `${baseURL}/api/AboutSection`;
 export const urlDesignSetting = `${baseURL}/api/DesignSetting`;
 export const urlDonation = `${baseURL}/api/Donation`;
-
 export const urlDegafiSetting = `${baseURL}/api/DesignSetting`;
 
 export const urlMember = `${baseURL}/api/member`
+
+export const urlBranch = `${baseURL}/api/Branch`
 export const urlNews = `${baseURL}/api/news`;
 export const urlMahber = `${baseURL}/api/mahber`;
 export const urlusers = `${baseURL}/api/users`;

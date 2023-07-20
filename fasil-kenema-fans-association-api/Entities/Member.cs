@@ -11,6 +11,9 @@ namespace FasilDonationAPI.Entities
         public virtual DesignSetting DesignSetting { get; set; }
         public Guid DesignSettingId { get; set; }
 
+        public virtual Branch Branch { get; set; }
+        public Guid BranchId { get; set; }
+
 
         public string Name { get; set; }       
         public string AmharicName { get; set; }
@@ -29,6 +32,8 @@ namespace FasilDonationAPI.Entities
         public string Address { get; set; }
         public string AddressAmharic { get; set; }
         public string JobType { get; set; }
+
+
 
      
 

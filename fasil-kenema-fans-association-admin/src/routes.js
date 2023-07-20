@@ -19,6 +19,11 @@ const AboutSectionCreate = React.lazy(() => import('./views/layout/aboutSection/
 const AboutSectionUpdate = React.lazy(() => import('./views/layout/aboutSection/AboutSectionEdit'))
 
 
+const branch = React.lazy(() => import('./views/membership/branch/Branch'))
+const branchCreate = React.lazy(() => import('./views/membership/branch/BranchCreate'))
+const branchUPdate = React.lazy(() => import('./views/membership/branch/BranchEdit'))
+
+
 
 const donation = React.lazy(() => import('./views/donation/Donation'))
 const donationCreate = React.lazy(() => import('./views/donation/DonationCreate'))
@@ -61,16 +66,20 @@ const routes = [
 
   { path: '/membership/design', name: 'Design Setting', element: DegafiSettting },
 
+//branch
+{ path: '/branch', name: 'Branch ', exact: true, element: branch },
+{ path: '/branch/create', name: 'Add Branch', element: branchCreate },
+{ path: '/branch/edit', name: 'Edit Branch', element: branchUPdate },
 
-   //donation 
-   { path: '/donation', name: 'Donation ', exact: true, element: donation },
-   { path: '/donation/create', name: 'Add Donation', element: donationCreate },
-   { path: '/donation/edit', name: 'Edit Donation', element: donationUpdate },
- 
-   //members 
-   { path: '/members', name: 'Members ', exact: true, element: members },
-   { path: '/members/create', name: 'Add Member', exact: true, element: membersCreate },
-   { path: '/members/edit', name: 'Edit Member', exact: true, element: membersUpdate },
+  //donation 
+  { path: '/donation', name: 'Donation ', exact: true, element: donation },
+  { path: '/donation/create', name: 'Add Donation', element: donationCreate },
+  { path: '/donation/edit', name: 'Edit Donation', element: donationUpdate },
+
+  //members 
+  { path: '/members', name: 'Members ', exact: true, element: members },
+  { path: '/members/create', name: 'Add Member', exact: true, element: membersCreate },
+  { path: '/members/edit', name: 'Edit Member', exact: true, element: membersUpdate },
 
 
 ]

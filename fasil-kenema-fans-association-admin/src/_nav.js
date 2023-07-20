@@ -28,6 +28,11 @@ const _nav = [
     name: 'Membership Design',
     to: '/membership/design',
     icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+  },  {
+    component: CNavItem,
+    name: 'Branch',
+    to: '/branch',
+    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
   },
   {
     component: CNavTitle,

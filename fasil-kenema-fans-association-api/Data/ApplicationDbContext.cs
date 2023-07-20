@@ -33,6 +33,8 @@ namespace FasilDonationAPI.Data
 
         public DbSet<Donation> Donations { get; set; }
 
+        public DbSet<Branch> Branches { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

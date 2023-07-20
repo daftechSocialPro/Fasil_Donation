@@ -35,7 +35,7 @@ import {
 import { MDBCol, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage } from 'mdb-react-ui-kit'
 import CIcon from '@coreui/icons-react'
 import { cilPeople, cilAlignCenter, cilPencil, cilCreditCard } from '@coreui/icons'
-import { urlMember, assetUrl, urlDesignSetting } from 'src/endpoints'
+import { urlMember, assetUrl, urlDesignSetting, urlBranch } from 'src/endpoints'
 import { customToast } from 'src/components/customToast'
 import Pagination from 'src/components/Pagination'
 import IdTemplate from 'src/components/IdTemplate'
@@ -63,7 +63,9 @@ function Member({ user, setIsLodding }) {
 
   const [template, setTemplate] = useState([])
 
-  const [excelFile, setExcelFile] = useState('')
+  const [excelFile, setExcelFile] = useState('');
+  const [branchs, setBranchs] =useState([])
+  const [branchId , setBranchId]= useState('')
 
   const handleSearch = (event) => {
     setSearch(event.target.value)
@@ -74,19 +76,27 @@ function Member({ user, setIsLodding }) {
   useEffect(() => {
     axios.get(urlMember).then((res) => {
 
-      console.log("meme",res.data)
+      //console.log("meme",res.data)
       setMembers(res.data);
     });
   }, []);
+
+  useEffect(()=>{
+
+    axios.get (urlBranch).then((res)=>{
+      setBranchs(res.data)
+    })
+
+  },[])
   
 
   const idView = (item) => {
-    console.log('mmm', item)
+    //console.log('mmm', item)
     setMember(item)
     axios
       .get(`${urlDesignSetting}/GetTemplate/`)
       .then((res) => {
-        console.log('template', res.data)
+        //console.log('template', res.data)
         setTemplate(res.data)
       })
       .catch((err) => console.error(err))
@@ -161,9 +171,9 @@ function Member({ user, setIsLodding }) {
     const firstPageIndex = (currentPage - 1) * PageSize
     const lastPageIndex = firstPageIndex + PageSize
     return members.filter((item) => item.name.toLowerCase().includes(search.toLowerCase()))
-      .filter((item) => idCardGiven === item.idGiven)
+      .filter((item) => idCardGiven === item.idGiven).filter((item)=>item.branchId== branchId)
       .slice(firstPageIndex, lastPageIndex)
-  }, [currentPage,members, search, idCardGiven])
+  }, [currentPage,members, search, idCardGiven,branchId])
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -201,7 +211,7 @@ function Member({ user, setIsLodding }) {
     formData.append('excelFile', excelFile)
     // formData.set('mahberId', mahber.id)
 
-    console.log('formdata', formData)
+    //console.log('formdata', formData)
 
     setIsLodding(true)
     axios
@@ -380,11 +390,11 @@ function Member({ user, setIsLodding }) {
                     <hr />
                     <MDBRow>
                       <MDBCol sm="3">
-                        <MDBCardText>Occupation</MDBCardText>
+                        <MDBCardText>Branch</MDBCardText>
                       </MDBCol>
                       <MDBCol sm="9">
                         <MDBCardText className="text-muted">
-                          {Member && Member.jobType}
+                          {Member && Member.branch && Member.branch.name}
                         </MDBCardText>
                       </MDBCol>
                     </MDBRow>
@@ -440,12 +450,14 @@ function Member({ user, setIsLodding }) {
                 phoneNumber={Member && Member.phoneNumber}
                 userPhoto={Member && Member.userPhoto}
                 color={
-                  template.designSetting &&
-                  template.designSetting.filter((x) => x.id == Member.designSetting)[0].color
+                  Member.designSetting &&
+                  Member.designSetting.color
                 }
                 tempback={template && template.backImage}
                 giveId={giveId}
                 id={Member && Member.id}
+                branch= {Member && Member.branch&& Member.branch.name}
+                localBranch = {Member  && Member.branch && Member.branch.localName}
               />
             )}
           </CCardBody>
@@ -562,7 +574,7 @@ function Member({ user, setIsLodding }) {
                       </CTableRow>
                     </CTableHead>
                     <CTableBody>
-                      {console.log('Member', Member)}
+                      {//console.log('Member', Member)}
 
                       {Member.payments &&
                         Member.payments.map((payment, index) => (
@@ -616,7 +628,27 @@ function Member({ user, setIsLodding }) {
                   <option value={false}>Not Given</option>
                 </CFormSelect>
               </CCol>
-              <CCol sm={6} className="d-flex justify-content-end">
+
+              <CCol sm={4}>
+              <CFormSelect
+                 label="Search By Branch:"
+                            type="text"
+                            placeholder="position..."
+                            required
+                            value={branchId}
+                            onChange={(e) => setBranchId(e.target.value)}
+                          >
+                            <option>--- Select Branch ---</option>
+                            {branchs &&
+                              branchs.map((item, index) => (
+                                <option key={index} value={item.id}>
+                                  {item.name} ( {item.localName}  )
+                             
+                                </option>
+                              ))}
+                          </CFormSelect>
+              </CCol>
+              <CCol sm={2} className="d-flex justify-content-end">
                 <span
                   style={{
                     fontSize: '22px',
@@ -624,7 +656,7 @@ function Member({ user, setIsLodding }) {
                   }}
                 >
                   {' '}
-                  {/* Total Fans: {Mahber.length}{' '} */}
+                
                 </span>
               </CCol>
             </CRow>
@@ -670,9 +702,9 @@ function Member({ user, setIsLodding }) {
                     <CTableHeaderCell>Member Name</CTableHeaderCell>
                     <CTableHeaderCell>Member Type</CTableHeaderCell>
                     <CTableHeaderCell>Location</CTableHeaderCell>
+                    <CTableHeaderCell>Branch</CTableHeaderCell>
                     <CTableHeaderCell>Phone Number</CTableHeaderCell>
                     <CTableHeaderCell>ID Card</CTableHeaderCell>
-
                     <CTableHeaderCell>Details</CTableHeaderCell>
                   </CTableRow>
                 </CTableHead>
@@ -715,7 +747,7 @@ function Member({ user, setIsLodding }) {
                           </div>
                         </div>
                         {/* <CProgress thin color={item.usage.color} value={item.usage.value} /> */}
-                      </CTableDataCell>
+                      </CTableDataCell>    <CTableDataCell>{item.branch.name} ({item.branch.localName})</CTableDataCell>
                       <CTableDataCell>{item.phoneNumber}</CTableDataCell>
                       <CTableDataCell>{item.idGiven ? 'Given' : 'Not Given'}</CTableDataCell>
                       <CTableDataCell>
