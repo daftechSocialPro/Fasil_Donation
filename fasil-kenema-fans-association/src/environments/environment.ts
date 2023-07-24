@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl:'http://localhost:2003/api',
-  assetUrl :'http://localhost:2003'
+  baseUrl:'http://192.168.0.102:2003/api',
+  assetUrl :'http://192.168.0.102:2003'
 };
 
 /*
