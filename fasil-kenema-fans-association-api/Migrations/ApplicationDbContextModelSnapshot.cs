@@ -437,6 +437,9 @@ namespace FasilDonationAPI.Migrations
                     b.Property<string>("MatchName")
                         .HasColumnType("text");
 
+                    b.Property<string>("OtherTeamName")
+                        .HasColumnType("text");
+
                     b.Property<string>("SeasonName")
                         .HasColumnType("text");
 

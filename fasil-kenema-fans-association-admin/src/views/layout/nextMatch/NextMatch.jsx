@@ -219,8 +219,7 @@ function nextMatch({ user }) {
                       style={{ width: '150px', borderRadius: '20px', border: 'solid #fff' }}
                       fluid
                     /><br/>
-                      
-
+                      <span className='text-center'> {item.otherTeamName} </span>   <br/>
                        {dateformat(item.createdAt)}
                       </CTableDataCell>
                       <CTableDataCell>

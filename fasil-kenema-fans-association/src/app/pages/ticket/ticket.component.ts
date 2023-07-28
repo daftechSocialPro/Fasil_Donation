@@ -43,6 +43,17 @@ export class TicketComponent implements OnInit {
 
     return image
   }
+
+  getName (){
+    let path;
+    if (this.nextMatch && this.nextMatch.isAway) {
+      path = this.nextMatch.otherTeamName;
+    }else {
+      path = "Fasil Kenema "; // Set a default image here
+    }
+
+    return path
+  }
   getLogo2(){
 
     let image;
@@ -56,6 +67,21 @@ export class TicketComponent implements OnInit {
     }
 
     return image
+  }
+
+
+  getName2 (){
+    let path;
+    if (this.nextMatch && this.nextMatch.isAway) {
+      path = "Fasil Kenema";
+    }else if(this.nextMatch) {
+      path = this.nextMatch.otherTeamName; // Set a default image here
+    }
+    else {
+      path = "Fasil Kenema";
+    }
+
+    return path
   }
 
 }

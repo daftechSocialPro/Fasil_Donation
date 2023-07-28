@@ -20,5 +20,7 @@ namespace FasilDonationAPI.Entities
         public string MatchDateTime { get; set; }
 
         public string LocationStadium { get; set; }
+
+        public string OtherTeamName { get; set; }
     }
 }

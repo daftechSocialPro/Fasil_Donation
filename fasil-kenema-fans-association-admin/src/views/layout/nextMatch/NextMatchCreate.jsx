@@ -30,7 +30,7 @@ export default function TmretExecCreate({ user,setIsLodding }) {
   const [MatchDateTime, setMatchDateTime] = useState('')
   const [LocationStadium, setLocationStadium] = useState('')
   const [IsAway, setIsAway] = useState(false)
-
+  const [OtherTeamName, setOtherTeamName] = useState('')
 
   const navigate = useNavigate()
 
@@ -52,6 +52,7 @@ export default function TmretExecCreate({ user,setIsLodding }) {
     formData.set('MatchDateTime', MatchDateTime)
     formData.set('LocationStadium', LocationStadium)
     formData.set('IsAway', IsAway)
+    formData.set('OtherTeamName',OtherTeamName)
     
     const form = event.currentTarget
     if (form.checkValidity() === false) {
@@ -183,6 +184,15 @@ export default function TmretExecCreate({ user,setIsLodding }) {
                    
                       <hr />
                       <MDBRow>
+
+                      <MDBCol sm="6">
+                          <CFormInput
+                            type="text"
+                            placeholder="Other Team Name ..."
+                            required
+                            value={OtherTeamName}
+                            onChange={(e) => setOtherTeamName(e.target.value)}
+                          /></MDBCol>
                      
                       <MDBCol sm="3">
                         <CFormSwitch  checked={IsAway} onChange={()=>setIsAway(!IsAway)}  label="Is Away" />

@@ -64,6 +64,7 @@ namespace FasilDonationAPI.Services.NextMatch
                 nextMatch1.MatchName = nextMatch.MatchName;
                 nextMatch1.MatchDateTime = nextMatch.MatchDateTime;
                 nextMatch1.LocationStadium = nextMatch.LocationStadium;
+                nextMatch1.OtherTeamName= nextMatch.OtherTeamName;
 
 
 

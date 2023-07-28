@@ -41,6 +41,7 @@ function NextMatchEdit({ user ,setIsLodding}) {
   const [LocationStadium, setLocationStadium] = useState(NextMatch.locationStadium)
   
   const [IsAway,setIsAway]=useState(NextMatch.isAway);
+  const [OtherTeamName, setOtherTeamName] = useState(NextMatch.otherTeamName)
 
 
 
@@ -64,6 +65,7 @@ function NextMatchEdit({ user ,setIsLodding}) {
     formData.set('MatchDateTime', MatchDateTime)
     formData.set('LocationStadium', LocationStadium)
     formData.set('IsAway', IsAway)
+    formData.set('OtherTeamName',OtherTeamName)
 
     const form = event.currentTarget
     if (form.checkValidity() === false) {
@@ -197,6 +199,15 @@ function NextMatchEdit({ user ,setIsLodding}) {
                    
                       <hr />
                       <MDBRow>
+
+                      <MDBCol sm="6">
+                          <CFormInput
+                            type="text"
+                            placeholder="Other Team Name ..."
+                            required
+                            value={OtherTeamName}
+                            onChange={(e) => setOtherTeamName(e.target.value)}
+                          /></MDBCol>
                      
                       <MDBCol sm="3">
                         <CFormSwitch  checked={IsAway} onChange={()=>setIsAway(!IsAway)}  label="Is Away" />
